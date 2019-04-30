@@ -86,16 +86,16 @@ update `customers` set `customers048` = '10200319536' where `customers048` IN ( 
 	//INCLUDE CLASSES
 	$class = $classes[$page];
 	
-	print_r($class);
-	exit;
-	// foreach( $class as $required_php_file ){
-	// 	if( file_exists( $pagepointer . "classes/" . $required_php_file . ".php" ) ){
-	// 		require_once $pagepointer . "classes/" . $required_php_file . ".php";
-	// 	}else{
-	// 		//echo $required_php_file; exit;//$class; 
-	// 		log_m( array( "missing_file" => $required_php_file ) );
-	// 	}
-	// }
+// 	print_r($class);
+// 	exit;
+	foreach( $class as $required_php_file ){
+		if( file_exists( $pagepointer . "classes/" . $required_php_file . ".php" ) ){
+			require_once $pagepointer . "classes/" . $required_php_file . ".php";
+		}else{
+			//echo $required_php_file; exit;//$class; 
+			log_m( array( "missing_file" => $required_php_file ) );
+		}
+	}
 	
 	//print_r(get_declared_classes());
 	//exit;
